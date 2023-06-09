@@ -10,10 +10,10 @@ export class DevicesComponent implements OnInit {
   page = 1;
   elPerPage = 10;
   pages = 1;
-  devises: Device[] = [];
+  devices: Device[] = [];
   constructor(private state: StateService) {
     // Initialize the devices array with pagination and calculate the total number of pages
-    this.devises = state.getAllWithPagination(this.page, this.elPerPage);
+    this.devices = state.getAllWithPagination(this.page, this.elPerPage);
     this.pages = state.getPages(this.elPerPage);
   }
 
@@ -33,7 +33,7 @@ export class DevicesComponent implements OnInit {
    */
   setPage(page: number) {
     this.page = page;
-    this.devises = this.state.getAllWithPagination(this.page, this.elPerPage);
+    this.devices = this.state.getAllWithPagination(this.page, this.elPerPage);
   }
 
   /**
@@ -50,7 +50,7 @@ export class DevicesComponent implements OnInit {
       this.page = this.pages;
     }
 
-    this.devises = this.state.getAllWithPagination(this.page, this.elPerPage);
+    this.devices = this.state.getAllWithPagination(this.page, this.elPerPage);
   }
 
   /**
@@ -59,6 +59,6 @@ export class DevicesComponent implements OnInit {
    */
   onAmmountChange(event: any) {
     this.elPerPage = +event.target.value;
-    this.devises = this.state.getAllWithPagination(this.page, this.elPerPage);
+    this.devices = this.state.getAllWithPagination(this.page, this.elPerPage);
   }
 }

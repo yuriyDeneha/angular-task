@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'tags',
 })
 export class TagsPipe implements PipeTransform {
-  transform(value: string[], ...args: unknown[]): unknown {
+  transform(value: string[]): string[] {
     return value
       .map((el) => {
         if (el.length > 8) {
@@ -12,6 +12,5 @@ export class TagsPipe implements PipeTransform {
         }
         return el;
       })
-      .join(', ');
   }
 }

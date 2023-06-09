@@ -10,9 +10,10 @@ export class Device {
 
   constructor(obj: device) {
     this.id = counter;
+    this.name = obj.name;
+    this.tags = obj.tags;
+    this.description = obj.description;
+
     counter++;
-    (this.name = obj.name),
-      (this.tags = obj.tags),
-      (this.description = obj.description);
   }
 }

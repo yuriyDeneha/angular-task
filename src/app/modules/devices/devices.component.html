@@ -1,18 +1,22 @@
 <div class="device-container">
-  <div class="table-container">
+  <div class="card table-container">
     <table>
       <tr>
         <th>Name</th>
         <th>Tags</th>
-        <th></th>
+        <th>Description indicator</th>
       </tr>
-      <tr *ngFor="let devise of devises">
+      <tr *ngFor="let device of devices">
         <td>
-          <a [routerLink]="[devise.id]">{{ devise.name }}</a>
+          <a [routerLink]="[device.id]">{{ device.name }}</a>
         </td>
-        <td>{{ devise.tags | tags }}</td>
+        <td>
+          <ul class="tags">
+            <li *ngFor="let tag of device.tags | tags; let index = index">{{tag}}</li>
+          </ul>
+        </td>
         <td class="right">
-          <app-light [description]="devise.description"></app-light>
+          <app-indicator [description]="device.description"></app-indicator>
         </td>
       </tr>
     </table>

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-light',
-  templateUrl: './light.component.html',
-  styleUrls: ['./light.component.scss'],
+  selector: 'app-indicator',
+  templateUrl: './indicator.component.html',
+  styleUrls: ['./indicator.component.scss'],
 })
-export class LightComponent implements OnInit {
+export class IndicatorComponent implements OnInit {
   @Input()
   description: string = '';
   constructor() {}
