@@ -13,16 +13,14 @@ body {
   flex: 1;
 }
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 3px;
-  max-width: 130px;
+  border: 1px solid rgb(134, 134, 134);
+  border-radius: 15px;
+  padding: 15px;
+  min-width: 120px;
   cursor: pointer;
   &.save {
-    background-color: gainsboro;
+    background-color: rgb(28, 54, 120);
+    color: white;
   }
 }
 

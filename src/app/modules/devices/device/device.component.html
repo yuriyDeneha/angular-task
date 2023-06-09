@@ -1,13 +1,13 @@
-<div class="device-container">
-  <form action="" [formGroup]="deviceForm">
+<div class="card device-container">
+  <form [formGroup]="deviceForm">
     <div>
-      <label for="">name</label
-      ><input type="text" formControlName="name" required />
+      <label for="">name</label>
+      <input type="text" formControlName="name" />
     </div>
 
     <div>
-      <label for="">tags (to add tag after writting press enter)</label
-      ><tag-input formControlName="tags" [modelAsStrings]="true"></tag-input>
+      <label for="">tags (to add tag after writting press enter)</label>
+      <tag-input formControlName="tags" [modelAsStrings]="true"></tag-input>
     </div>
     <div>
       <label for="">description</label>
@@ -21,8 +21,8 @@
     </div>
 
     <div class="button-container">
-      <div class="button" (click)="cansel()"><span>cancel</span></div>
-      <div class="button save" (click)="submitForm()"><span>save</span></div>
+      <button class="button" (click)="cancel()">Cancel</button>
+      <button class="button save" (click)="submit()">Save</button>
     </div>
   </form>
 </div>

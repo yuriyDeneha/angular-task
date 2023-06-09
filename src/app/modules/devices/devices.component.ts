@@ -12,18 +12,24 @@ export class DevicesComponent implements OnInit {
   pages = 1;
   devices: Device[] = [];
   constructor(private state: StateService) {
-    // Initialize the devices array with pagination and calculate the total number of pages
-    this.devices = state.getAllWithPagination(this.page, this.elPerPage);
-    this.pages = state.getPages(this.elPerPage);
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAll();
+  }
+
+  // Initialize the devices array with pagination and calculate the total number of pages
+  private getAll() {
+    this.devices = this.state.getAllWithPagination(this.page, this.elPerPage);
+    this.pages = this.state.getPages(this.elPerPage);
+  }
 
   /**
    * Generates an array representing the available pages for pagination.
    * @returns {number[]} - The array of page numbers.
    */
-  getPagesArray() {
+  public getPagesArray() {
     return Array.from({ length: this.pages }, (_, index) => index + 1);
   }
 
@@ -31,7 +37,7 @@ export class DevicesComponent implements OnInit {
    * Sets the current page for pagination.
    * @param {number} page - The page number to set.
    */
-  setPage(page: number) {
+  public setPage(page: number) {
     this.page = page;
     this.devices = this.state.getAllWithPagination(this.page, this.elPerPage);
   }
@@ -40,7 +46,7 @@ export class DevicesComponent implements OnInit {
    * Scrolls to the previous or next page based on the specified number.
    * @param {number} num - The number to scroll the page by (-1 for previous, 1 for next).
    */
-  scrollPage(num: number) {
+  public scrollPage(num: number) {
     this.page += num;
     // Ensure the page is within valid bounds
     if (this.page < 1) {
@@ -57,7 +63,7 @@ export class DevicesComponent implements OnInit {
    * Handles the event when the number of elements per page changes.
    * @param {any} event - The event object.
    */
-  onAmmountChange(event: any) {
+  public onAmmountChange(event: any) {
     this.elPerPage = +event.target.value;
     this.devices = this.state.getAllWithPagination(this.page, this.elPerPage);
   }

@@ -1,4 +1,3 @@
-import { device } from '../types/devise';
 
 let counter = 1;
 
@@ -8,7 +7,7 @@ export class Device {
   tags: string[];
   description: string;
 
-  constructor(obj: device) {
+  constructor(obj: Exclude<Device, 'id'>) {
     this.id = counter;
     this.name = obj.name;
     this.tags = obj.tags;

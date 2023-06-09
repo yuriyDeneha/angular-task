@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StateService } from 'src/app/shared/servises/state.service';
 import { Device } from 'src/app/utils/device';
@@ -11,6 +11,7 @@ import { Device } from 'src/app/utils/device';
 export class DeviceComponent implements OnInit {
   device: Device | undefined;
   deviceForm!: FormGroup;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -32,10 +33,10 @@ export class DeviceComponent implements OnInit {
    * Sets the initial values of the form fields based on the retrieved device object.
    */
   private createPageForm(): void {
-    console.log(this.device);
+
     this.deviceForm = this.fb.group({
       id: [this.device?.id || ''],
-      name: [this.device?.name || ''],
+      name: [this.device?.name || '', Validators.required],
       tags: [this.device?.tags || ['']],
       description: [this.device?.description || ''],
     });
@@ -45,18 +46,18 @@ export class DeviceComponent implements OnInit {
    * Submits the device form when it is valid.
    * Updates the device in the state service with the form values and navigates to the 'devices' route.
    */
-  submitForm() {
-    if (this.deviceForm.valid) {
-      console.log(this.deviceForm.value);
-      this.state.update(this.deviceForm.value);
-      this.router.navigate(['devices']);
+  public submit(): void {
+    if (!this.deviceForm.valid) {
+      return;
     }
+    this.state.update(this.deviceForm.value);
+    this.router.navigate(['devices']);
   }
 
   /**
    * Cancels the device form and navigates to the 'devices' route.
    */
-  cansel() {
+  public cancel() {
     this.router.navigate(['devices']);
   }
 }

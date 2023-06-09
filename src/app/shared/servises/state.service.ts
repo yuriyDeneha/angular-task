@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { device } from 'src/app/types/devise';
 import { Device } from 'src/app/utils/device';
 import data from '../../utils/devices.json';
 
@@ -13,7 +12,7 @@ export class StateService {
   devices: Device[] = [];
   constructor() {
     // Initialize the devices array by creating Device objects from the data array
-    data.forEach((el) => {
+    data.forEach((el: any) => {
       this.devices.push(new Device(el));
     });
   }
@@ -22,7 +21,7 @@ export class StateService {
    * Adds a new device to the devices array.
    * @param {device} el - The device object to add.
    */
-  add(el: device) {
+  add(el: Device) {
     this.devices.push(new Device(el));
   }
 

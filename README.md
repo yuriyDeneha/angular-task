@@ -9,3 +9,9 @@ Run `npm i` and `ng serve` for a dev server. Navigate to `http://localhost:4200/
 ## initial state
 
 to change initial state change devices.json in `src/app/utils`
+
+### Documentation
+
+- Install required modules: `npm install`, 
+- Run a dev server: `ng serve`, 
+- Run tests with `ng test`
