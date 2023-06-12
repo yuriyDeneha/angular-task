@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Device } from 'src/app/utils/device';
-import data from '../../utils/devices.json';
+import { Device } from 'src/app/models/device';
+import data from '../../../assets/dummy-data/devices.json';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

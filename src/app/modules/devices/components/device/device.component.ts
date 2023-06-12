@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DevicesService } from 'src/app/shared/services/devices.service';
-import { Device } from 'src/app/utils/device';
+import { Device } from 'src/app/models/device';
 @Component({
   selector: 'app-device',
   templateUrl: './device.component.html',

@@ -5,19 +5,19 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('../modules/home/home.module').then((mod) => mod.HomeModule),
+      import('./modules/home/home.module').then((mod) => mod.HomeModule),
   },
   {
     path: 'devices',
     loadChildren: () =>
-      import('../modules/devices/devices.module').then(
+      import('./modules/devices/devices.module').then(
         (mod) => mod.DevicesModule
       ),
   },
   {
     path: 'support',
     loadChildren: () =>
-      import('../modules/support/support.module').then(
+      import('./modules/support/support.module').then(
         (mod) => mod.SupportModule
       ),
   },
