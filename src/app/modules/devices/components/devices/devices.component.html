@@ -8,7 +8,7 @@
       </tr>
       <tr *ngFor="let device of devices">
         <td>
-          <a [routerLink]="[device.id]">{{ device.name }}</a>
+          <a [routerLink]="['../', device.id, 'update']">{{ device.name }}</a>
         </td>
         <td>
           <ul class="tags">

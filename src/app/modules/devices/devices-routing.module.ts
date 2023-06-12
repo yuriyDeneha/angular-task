@@ -10,7 +10,13 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       { path: 'all', component: DevicesComponent },
-      { path: ':id', component: DeviceComponent },
+      {
+        path: ':id',
+        children: [
+          { path: 'update', component: DeviceComponent },
+          { path: '', pathMatch: 'full', redirectTo: 'update' },
+        ]
+      },
       { path: '', pathMatch: 'full', redirectTo: 'all' },
 
     ]
