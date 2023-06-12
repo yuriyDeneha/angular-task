@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { StateService } from '../../servises/state.service';
+import { DevicesService } from '../../services/devices.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { StateService } from '../../servises/state.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private state: StateService) {}
+  constructor(private router: Router, private state: DevicesService) {}
 
   url: string = '';
 

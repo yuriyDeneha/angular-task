@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StateService } from 'src/app/shared/servises/state.service';
+import { DevicesService } from 'src/app/shared/services/devices.service';
 import { Device } from 'src/app/utils/device';
 @Component({
   selector: 'app-device',
@@ -15,7 +15,7 @@ export class DeviceComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private state: StateService,
+    private state: DevicesService,
     private fb: FormBuilder
   ) {}
 

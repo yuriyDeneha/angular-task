@@ -1,0 +1,13 @@
+.paginator-conpainer {
+  margin-top: 10px;
+  column-gap: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  span {
+    padding: 5px 8px;
+    border-radius: 5px;
+    background-color: #d7d7d7;
+  }
+}

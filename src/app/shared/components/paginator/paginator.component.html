@@ -1,8 +1,8 @@
 
   <div class="paginator-conpainer">
-    <span (click)="prev()"><</span>
-    <span (click)="onPageChange.emit(item)" *ngFor="let item of getPagesArray()">{{item}}</span>
-    <span (click)="next()">></span>
+    <span *ngIf="!isFirst" (click)="prev()"><</span>
+    <span (click)="onPageChange.emit(item)" *ngFor="let item of pages">{{item}}</span>
+    <span *ngIf="!isLast" (click)="next()">></span>
     <select (change)="onSizeChange.emit($event)">
       <option *ngFor="let item of pagesOptions" [value]="item">{{item}}</option>
     </select>

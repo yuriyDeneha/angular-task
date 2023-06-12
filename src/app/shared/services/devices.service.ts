@@ -8,8 +8,10 @@ import data from '../../utils/devices.json';
 /**
  * Represents a state service for managing devices.
  */
-export class StateService {
+export class DevicesService {
+
   devices: Device[] = [];
+
   constructor() {
     // Initialize the devices array by creating Device objects from the data array
     data.forEach((el: any) => {
@@ -40,9 +42,9 @@ export class StateService {
    * @param {Device} device - The updated device object.
    */
   update(device: Device) {
-    let deviseToUpdate = this.devices.find((el) => el.id == device.id);
-    if (deviseToUpdate) {
-      let index = this.devices.indexOf(deviseToUpdate);
+    let deviceToUpdate = this.devices.find((el) => el.id == device.id);
+    if (deviceToUpdate) {
+      let index = this.devices.indexOf(deviceToUpdate);
       this.devices[index] = device;
     }
   }
@@ -62,9 +64,8 @@ export class StateService {
    * @param {number} amount - The number of devices per page.
    * @returns {Device[]} - The array of devices for the specified page.
    */
-  getAllWithPagination(page: number = 1, ammount: number = 8) {
-    console.log((page - 1) * ammount);
-    return this.devices.slice((page - 1) * ammount, page * ammount);
+  getAllWithPagination(page: number = 0, ammount: number = 10) {
+    return this.devices.slice(page * ammount, (page + 1) * ammount);
   }
   /**
    * Calculates the number of pages needed for pagination based on the total number of devices.
