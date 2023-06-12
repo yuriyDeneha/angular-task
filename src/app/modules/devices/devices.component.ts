@@ -8,10 +8,13 @@ import { Device } from 'src/app/utils/device';
   styleUrls: ['./devices.component.scss'],
 })
 export class DevicesComponent implements OnInit {
+
   page = 0;
   size = 10;
   devices: Device[] = [];
-  constructor(private state: DevicesService) {
+  quantity: number = 0;
+
+  constructor(private deviceService: DevicesService) {
 
   }
 
@@ -21,7 +24,10 @@ export class DevicesComponent implements OnInit {
 
   // Initialize the devices array with pagination and calculate the total number of pages
   private getAll() {
-    this.devices = this.state.getAllWithPagination(this.page, this.size);
+    this.deviceService.getAll(this.page, this.size).subscribe(({items, quantity}) => {
+      this.devices = items;
+      this.quantity = quantity;
+    })
   }
 
   /**
@@ -30,7 +36,7 @@ export class DevicesComponent implements OnInit {
    */
   public setPage(page: number) {
     this.page = page;
-    this.devices = this.state.getAllWithPagination(this.page, this.size);
+    this.getAll();
   }
 
   /**
@@ -44,7 +50,7 @@ export class DevicesComponent implements OnInit {
       this.page = 1;
     }
 
-    this.devices = this.state.getAllWithPagination(this.page, this.size);
+    this.getAll();
   }
 
   /**
@@ -53,6 +59,8 @@ export class DevicesComponent implements OnInit {
    */
   public setSize(event: any) {
     this.size = +event.target.value;
-    this.devices = this.state.getAllWithPagination(this.page, this.size);
+    this.page = 0;
+
+    this.getAll();
   }
 }

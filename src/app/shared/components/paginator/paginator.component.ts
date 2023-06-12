@@ -28,6 +28,7 @@ export class PaginatorComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
     if (changes['size']) {
       this.pages =  this.getPagesArray(this.size, this.amount);
     }
@@ -38,18 +39,19 @@ export class PaginatorComponent implements OnChanges {
   }
 
   public next(): void {
-    this.onPageChange.emit(this.page - 1);
+    this.onPageChange.emit(this.page + 1);
   }
 
-    /**
+  /**
    * Generates an array representing the available pages for pagination.
    * @returns {number[]} - The array of page numbers.
    */
-  public getPagesArray(size: number, amount: number) {
+  public getPagesArray(size: number, amount: number): number[] {
     if (!size) {
       return [];
     }
-    const pagesAmount = Math.floor(amount / size + 1)
+    const pagesAmount = Math.ceil(amount / size)
+    console.log(pagesAmount, size, amount);
     return Array.from({ length: pagesAmount }, (_, index) => index + 1);
   }
 

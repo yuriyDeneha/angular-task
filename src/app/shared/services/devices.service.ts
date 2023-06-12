@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Device } from 'src/app/utils/device';
 import data from '../../utils/devices.json';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -64,16 +65,14 @@ export class DevicesService {
    * @param {number} amount - The number of devices per page.
    * @returns {Device[]} - The array of devices for the specified page.
    */
-  getAllWithPagination(page: number = 0, ammount: number = 10) {
-    return this.devices.slice(page * ammount, (page + 1) * ammount);
-  }
-  /**
-   * Calculates the number of pages needed for pagination based on the total number of devices.
-   * @param {number} length - The number of devices per page.
-   * @returns {number} - The total number of pages.
-   */
-  getPages(length: number = 8) {
-    return Math.ceil(this.devices.length / length);
+  getAll(page: number = 0, ammount: number = 10): Observable<{
+    items: Device[],
+    quantity: number
+  }> {
+    return of({
+      items: this.devices.slice(page * ammount, (page + 1) * ammount),
+      quantity: this.devices.length
+    })
   }
 
   /**

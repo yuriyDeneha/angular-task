@@ -11,12 +11,6 @@
 to change initial state change devices.json in `src/app/utils`
 
 
-## Angular version
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
-and typescript version - 4.4.3
-
-
 ## Project structure by modules:
 
 `src/app/models` - shared interfaces, typesmodels and enums
@@ -28,11 +22,9 @@ and typescript version - 4.4.3
 
 ## Technologies
 
-Angular 13
-TypeScript
-ESLint
-NgRx Store - reactive state management for Angular apps inspired by Redux
-File System Access API - for accessing folders and files
-IndexedDb - for storing preferences, settings and history of dental cases
-oidc-client - for authenticating user
-Babylon.js - real time 3D engine using JS
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4
+
+List:
+Angular: 13.0.4.
+TypeScript 4.4.3
+...
