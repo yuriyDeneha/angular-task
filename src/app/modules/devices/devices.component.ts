@@ -14,9 +14,7 @@ export class DevicesComponent implements OnInit {
   devices: Device[] = [];
   quantity: number = 0;
 
-  constructor(private deviceService: DevicesService) {
-
-  }
+  constructor(private deviceService: DevicesService) {}
 
   ngOnInit(): void {
     this.getAll();
