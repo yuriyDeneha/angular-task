@@ -38,11 +38,11 @@ to change initial state change devices.json in `src/app/utils`
 
 
 ### Roouting module structure:
--- all      / get all items, for example as table
--- add      / add item
--- :id      / work with seperate instanse
---- view    / get by id and view it
---- update  / update item by id
---- delete? / delete item by id if seperate page is needed
+- `all`      / get all items, for example as table
+- `add`      / add item
+- `:id`      / work with seperate instanse
+  - `view`    / get by id and view it
+  - `update`  / update item by id
+  - `delete`? / delete item by id if seperate page is needed
 
 Please note that `add` and `update` can be route to the same form component.
